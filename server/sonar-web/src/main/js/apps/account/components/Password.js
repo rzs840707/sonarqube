@@ -52,7 +52,7 @@ export default class Password extends Component {
     e.preventDefault();
 
     const { user } = this.props;
-    const oldPassword = this.refs.oldPassword.value;
+    const previousPassword = this.refs.oldPassword.value;
     const password = this.refs.password.value;
     const passwordConfirmation = this.refs.passwordConfirmation.value;
 
@@ -60,7 +60,7 @@ export default class Password extends Component {
       this.refs.password.focus();
       this.setErrors([translate('user.password_doesnt_match_confirmation')]);
     } else {
-      changePassword(user.login, password, oldPassword)
+      changePassword({ login: user.login, password, previousPassword })
         .then(this.handleSuccessfulChange.bind(this))
         .catch(this.handleFailedChange.bind(this));
     }

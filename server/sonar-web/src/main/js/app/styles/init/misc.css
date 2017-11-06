@@ -316,6 +316,10 @@ td.big-spacer-top {
   cursor: not-allowed;
 }
 
+.noselect {
+  user-select: none;
+}
+
 .no-outline,
 .no-outline:focus {
   outline: none;
